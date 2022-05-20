@@ -23,14 +23,78 @@ Este ejercicio ha sido realizado por los miembros del equipo 1. Dicho equipo est
 
 <p align="justify">Se crea un proyecto Maven utilizando la tecnología spring, se definen como componentes los spring services, la base de datos H2 y JPA. Se crea la estructura de proyecto en capas definiendo los paquetes de controllers, dao, dto y services. Para proseguir se crean las entidades 'almacenes' y 'cajas' con una relación de uno a muchos (one to many). Se definen las columnas y mediante anotaciones se mapea con los atributos de la entidad.</p>
 
-En la siguiente entidad se define la anotación many to one.
+<p align="justify">Antes de proceder con la creación de paquetes y estructuras se definirán los parámetros de acceso a la base de datos H2, para ello se añaden las siguiente línas en el fichero 'application.propierties' ubicado en 'src/main/resources/.</p>
 
-<details>
- 
- <summary> Se muestra el código de la entidad 'Almacenes' </summary>
- 
- <br>
- 
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169618188-c5a4c9ad-c431-4d2b-a693-a025b1e85654.png">
+</p>
+
+A continuación se procederá a revisar las dependencias del fichero 'pom.xml' ubicado en la raíz de la carpeta del proyecto de Spring. Se deberá verificar que aparezcan las siguiente propiedades:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.crud.spring</groupId>
+	<artifactId>UD25-Ejercicio_3</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>UD25-Ejercicio_3</name>
+	<description>Ejercicio UD25</description>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+```
+
+<p align="justify">Una vez estén revisados el pom y el fichero de propiedades de la base de datos H2 se procederá a la creación de las entidades. El programa tendrá tantas entidades como tablas existan en el modelo relacional. En la siguiente entidad se define la anotación many to one que hará referencia a la relación many to one.</p>
+
 ```java
  package com.crud.springmaven.DTO;
 
@@ -112,15 +176,7 @@ public class Almacenes {
 }
 ```
  
-</details>
-
 En la siguiente entidad se define la anotación one to many.
- 
-<details>
- 
- <summary> Se muestra el código de la entidad 'Cajas' </summary>
- 
- <br>
  
  ```java
 package com.crud.springmaven.DTO;
@@ -198,17 +254,7 @@ public class Cajas {
 }
  ```
  
-</details>
- 
- 
 <p align="justify"> Una vez estén definidas ambas entidades se procederá a la creación y definición de los métodos en las interfaces de la capa service. Para ello se creará en el paquete services la interfaz 'AlmacenesService' y 'CajasService'.</p>
- 
-  
-<details>
- 
-  <summary> Se muestra el código de la interfaz 'AlmacenesService' </summary>
- 
- <br>
  
  ```java
  package com.crud.springmaven.Services;
@@ -232,14 +278,8 @@ public interface AlmacenesService {
 }
  ```
  
-</details>
+ Se muestra el código de la interfaz 'CajasService':
  
- 
- <details>
- 
-  <summary> Se muestra el código de la interfaz 'CajasService' </summary>
- 
- <br>
  
  ```java
  package com.crud.springmaven.Services;
@@ -263,18 +303,12 @@ public interface CajasService {
 }
  ```
  
-</details>
- 
 <p align="justify">Una vez estén listas las cabeceras de las funciones de la interfaz se procederá a crear el DAO. Para ello se crearán las interfaces 'AlmacenesDAO' y 'CajasDAO'. Ambas interfaces heredarán los métodos del JpaRepository enviando como parámetro en identificador de cada entidad con el tipo. </p>
   
 <p align="justify">Esta herencia es utilizada para obtener los métodos propios de JPA en relación con la base de datos.</p>
   
-  <details>
- 
-  <summary> Se muestra el código de la interfaz 'AlmacenesDAO' </summary>
- 
- <br>
- 
+ Se muestra el código de la interfaz 'AlmacenesDAO':
+  
  ```java
 package com.crud.springmaven.DAO;
 
@@ -289,14 +323,7 @@ public interface AlmacenesDAO extends JpaRepository<Almacenes, Long> {
 } 
  ```
  
-</details>
-  
-  
-   <details>
- 
-  <summary> Se muestra el código de la interfaz 'CajasDAO' </summary>
- 
- <br>
+Se muestra el código de la interfaz 'CajasDAO': 
  
  ```java
  package com.crud.springmaven.DAO;
@@ -312,17 +339,13 @@ public interface CajasDAO extends JpaRepository<Cajas, String> {
 }
  ```
  
-</details>
+
  
 <p align="justify">El siguiente paso será crear en el paquete service las clases que implementarán tanto la interface de la capa service como la interface de la capa DAO, de esta forma dicha clase tendrá que utilizar de forma obligatoria todas y cada una de las funciones definidas en ambas interfaces.</p>
 
 <p align="justify">Es muy importante que a lo largo de este proceso se inserten las anotaciones correspondiente, la falta de una de ellas puede afectar al flujo del programa.</p>
     
-<details>
-
- <summary> Se muestra el código de la clase 'AlmacenesServiceImpl' </summary>
- 
- <br>
+Se muestra el código de la clase 'AlmacenesServiceImpl':
  
  ```java
 package com.crud.springmaven.Services;
@@ -372,13 +395,7 @@ public class AlmacenesServiceImpl implements AlmacenesService {
  
  ```
  
-</details>
-    
- <details>
- 
-  <summary> Se muestra el código de la clase 'CajasServiceImpl' </summary>
- 
- <br>
+Se muestra el código de la clase 'CajasServiceImpl':
  
  ```java
  package com.crud.springmaven.Services;
@@ -424,20 +441,14 @@ public class CajasServiceImpl implements CajasService {
 
 }
  ```
- 
-</details>
     
 <p align="justify">Por último se crearán los controladores. En estas clases irá albergada la información relativa al mapeo de los end-points con las funcionalidades del java. Se definen las clases como @RestController y se parametriza con el @RequestMapping("/api"). Como se ha mencionado anteriomente, es muy importante el uso de anotaciones para el funcionamiento correcto del aplicativo con sus endpoints, por eso es muy recomendable prestar atención a cada línea de código que forma el programa.</p>
   
 <p align="justify">También en los controladores se desarrolla el código de las funcionalidades que se reciben de la clase service.</p>
   
-<details>
+Se muestra el código del controlador 'AlmacenesController':
  
-  <summary> Se muestra el código del controlador 'AlmacenesController' </summary>
- 
- <br>
- 
- ```java
+  ```java
 package com.crud.springmaven.Controller;
 
 import java.util.List;
@@ -519,15 +530,7 @@ public class AlmacenesController {
 }
  ```
  
-</details>
-  
-  
-  
-<details>
-
-<summary> Se muestra el código del controlador 'CajasController' </summary>
-
-<br>
+Se muestra el código del controlador 'CajasController':
 
 ```java
 package com.crud.springmaven.Controller;
@@ -613,5 +616,3 @@ public class CajasController {
 	}
 }
 ```
-
-</details>
