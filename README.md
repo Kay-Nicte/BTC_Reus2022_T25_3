@@ -21,7 +21,7 @@ Este ejercicio ha sido realizado por los miembros del equipo 1. Dicho equipo est
   [- Octavio Bernal](https://github.com/OctavioBernalGH)<br>
   [- David Dalmau](https://github.com/DavidDalmauDieguez)
 
-Se crea un proyecto Maven utilizando la tecnología spring, se definen como componentes los spring services, la base de datos H2 y JPA. Se crea la estructura de proyecto en capas definiendo los paquetes de controllers, dao, dto y services. Para proseguir se crean las entidades 'almacenes' y 'cajas' con una relación de uno a muchos (one to many). Se definen las columnas y mediante anotaciones se mapea con los atributos de la entidad.
+<p align="justify">Se crea un proyecto Maven utilizando la tecnología spring, se definen como componentes los spring services, la base de datos H2 y JPA. Se crea la estructura de proyecto en capas definiendo los paquetes de controllers, dao, dto y services. Para proseguir se crean las entidades 'almacenes' y 'cajas' con una relación de uno a muchos (one to many). Se definen las columnas y mediante anotaciones se mapea con los atributos de la entidad.</p>
 
 En la siguiente entidad se define la anotación many to one.
 
@@ -201,7 +201,7 @@ public class Cajas {
 </details>
  
  
- Una vez estén definidas ambas entidades se procederá a la creación y definición de los métodos en las interfaces de la capa service. Para ello se creará en el paquete services la interfaz 'AlmacenesService' y 'CajasService'.
+<p align="justify"> Una vez estén definidas ambas entidades se procederá a la creación y definición de los métodos en las interfaces de la capa service. Para ello se creará en el paquete services la interfaz 'AlmacenesService' y 'CajasService'.</p>
  
   
 <details>
@@ -265,9 +265,9 @@ public interface CajasService {
  
 </details>
  
- Una vez estén listas las cabeceras de las funciones de la interfaz se procederá a crear el DAO. Para ello se crearán las interfaces 'AlmacenesDAO' y 'CajasDAO'. Ambas interfaces heredarán los métodos del JpaRepository enviando como parámetro en identificador de cada entidad con el tipo. 
+<p align="justify">Una vez estén listas las cabeceras de las funciones de la interfaz se procederá a crear el DAO. Para ello se crearán las interfaces 'AlmacenesDAO' y 'CajasDAO'. Ambas interfaces heredarán los métodos del JpaRepository enviando como parámetro en identificador de cada entidad con el tipo. </p>
   
-Esta herencia es utilizada para obtener los métodos propios de JPA en relación con la base de datos.
+<p align="justify">Esta herencia es utilizada para obtener los métodos propios de JPA en relación con la base de datos.</p>
   
   <details>
  
@@ -314,9 +314,9 @@ public interface CajasDAO extends JpaRepository<Cajas, String> {
  
 </details>
  
-El siguiente paso será crear en el paquete service las clases que implementarán tanto la interface de la capa service como la interface de la capa DAO, de esta forma dicha clase tendrá que utilizar de forma obligatoria todas y cada una de las funciones definidas en ambas interfaces.
+<p align="justify">El siguiente paso será crear en el paquete service las clases que implementarán tanto la interface de la capa service como la interface de la capa DAO, de esta forma dicha clase tendrá que utilizar de forma obligatoria todas y cada una de las funciones definidas en ambas interfaces.</p>
 
-Es muy importante que a lo largo de este proceso se inserten las anotaciones correspondiente, la falta de una de ellas puede afectar al flujo del programa.
+<p align="justify">Es muy importante que a lo largo de este proceso se inserten las anotaciones correspondiente, la falta de una de ellas puede afectar al flujo del programa.</p>
     
 <details>
 
@@ -427,9 +427,9 @@ public class CajasServiceImpl implements CajasService {
  
 </details>
     
-Por último se crearán los controladores. En estas clases irá albergada la información relativa al mapeo de los end-points con las funcionalidades del java. Se definen las clases como @RestController y se parametriza con el @RequestMapping("/api"). Como se ha mencionado anteriomente, es muy importante el uso de anotaciones para el funcionamiento correcto del aplicativo con sus endpoints, por eso es muy recomendable prestar atención a cada línea de código que forma el programa.
+<p align="justify">Por último se crearán los controladores. En estas clases irá albergada la información relativa al mapeo de los end-points con las funcionalidades del java. Se definen las clases como @RestController y se parametriza con el @RequestMapping("/api"). Como se ha mencionado anteriomente, es muy importante el uso de anotaciones para el funcionamiento correcto del aplicativo con sus endpoints, por eso es muy recomendable prestar atención a cada línea de código que forma el programa.</p>
   
-También en los controladores se desarrolla el código de las funcionalidades que se reciben de la clase service.
+<p align="justify">También en los controladores se desarrolla el código de las funcionalidades que se reciben de la clase service.</p>
   
 <details>
  
