@@ -5,15 +5,15 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.7</version>
+		<version>2.7.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.crud</groupId>
-	<artifactId>BTC_Reus2022_T25_3</artifactId>
+	<groupId>com.crud.spring</groupId>
+	<artifactId>UD25-Ejercicio_3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>BTC_Reus2022_T25_3</name>
-	<description>CRUD Spring Maven</description>
+	<name>UD25-Ejercicio_3</name>
+	<description>Ejercicio UD25</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

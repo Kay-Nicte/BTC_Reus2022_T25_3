@@ -1,21 +1,21 @@
-package Services;
+package com.crud.springmaven.Services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import DAO.AlmacenesDAO;
-import DTO.Almacenes;
+import com.crud.springmaven.DAO.AlmacenesDAO;
+import com.crud.springmaven.DTO.Almacenes;
 
 @Service
-
-public class AlmacenesServiceImpl implements AlmacenesService{
+public class AlmacenesServiceImpl implements AlmacenesService {
 
 //Es para decirle a Spring que aplique la autoinyección de dependencias (para traer los métodos del DAO)
-@Autowired
-AlmacenesDAO almacenesDAO;
-	
+
+	@Autowired
+	AlmacenesDAO almacenesDAO;
+
 	@Override
 	public List<Almacenes> listarAlmacenes() {
 		return almacenesDAO.findAll();

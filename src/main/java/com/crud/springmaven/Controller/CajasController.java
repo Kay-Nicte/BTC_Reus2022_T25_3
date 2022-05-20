@@ -1,4 +1,4 @@
-package Controller;
+package com.crud.springmaven.Controller;
 
 import java.util.List;
 
@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import DTO.Cajas;
-import Services.CajasServiceImpl;
+import com.crud.springmaven.DTO.Cajas;
+import com.crud.springmaven.Services.CajasServiceImpl;
 
 /**
- * Clase @CajasController. Mappea las funcionalidades con las rutas de
- * la api.
+ * Clase @CajasController. Mappea las funcionalidades con las rutas de la api.
  * 
  * @author Octavio Bernal.
  * @author Ixabel Justo.
@@ -25,8 +24,10 @@ import Services.CajasServiceImpl;
  * @author Josep Oriol López.
  *
  */
+
 @RestController
 @RequestMapping("/api")
+
 public class CajasController {
 
 	/** Se crea una instancia del tipo @CajasServiceImpl */
@@ -39,12 +40,6 @@ public class CajasController {
 		return cajasServiceImpl.listarCajas();
 	}
 
-	/** Método para listar cajas por código */
-	@GetMapping("/cajas/codigo/{NumReferencia}")
-	public List<Cajas> listarCajasCodigo(@PathVariable(name = "NumReferencia") String NumReferencia) {
-		return null;
-	}
-
 	/** Método para crear una nueva caja */
 	@PostMapping("/cajas")
 	public Cajas guardarCaja(@RequestBody Cajas cajas) {
@@ -52,21 +47,21 @@ public class CajasController {
 	}
 
 	/** Método para buscar una caja por codigo */
-	@GetMapping("/cajas/{id}")
-	public Cajas buscarCajasId(@PathVariable(name = "NumReferencia") String NumReferencia) {
-		return cajasServiceImpl.buscarCajasCodigo(NumReferencia);
+	@GetMapping("/cajas/{num_referencia}")
+	public Cajas buscarCajasId(@PathVariable(name = "num_referencia") String num_referencia) {
+		return cajasServiceImpl.buscarCajasCodigo(num_referencia);
 
 	}
 
 	/** Método para eliminar una caja */
-	@PutMapping("/cajas/{id}")
-	public Cajas actualizarCaja(@PathVariable(name = "NumReferencia") String NumReferencia,
+	@PutMapping("/cajas/{num_referencia}")
+	public Cajas actualizarCaja(@PathVariable(name = "num_referencia") String num_referencia,
 			@RequestBody Cajas cajas) {
 		/** Se definen instancias del tipo Cajas */
 		Cajas caja_a_actualizar = new Cajas();
 		Cajas actualizado = new Cajas();
 		/** Se filtra la caja a actualizar por código */
-		caja_a_actualizar = cajasServiceImpl.buscarCajasCodigo(NumReferencia);
+		caja_a_actualizar = cajasServiceImpl.buscarCajasCodigo(num_referencia);
 		/** Se actualizan los valores */
 		caja_a_actualizar.setNumReferencia(cajas.getNumReferencia());
 		caja_a_actualizar.setContenido(cajas.getContenido());
@@ -79,9 +74,9 @@ public class CajasController {
 	}
 
 	/** Método para eliminar una caja */
-	@DeleteMapping("/cajas/{id}")
-	public void eliminarCaja(@PathVariable(name = "NumReferencia") String NumReferencia) {
-		cajasServiceImpl.eliminarCajas(NumReferencia);
+	@DeleteMapping("/cajas/{num_referencia}")
+	public void eliminarCaja(@PathVariable(name = "num_referencia") String num_referencia) {
+		cajasServiceImpl.eliminarCajas(num_referencia);
 		System.out.println("Caja eliminada con exito.");
 	}
 }

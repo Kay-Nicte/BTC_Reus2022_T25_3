@@ -1,20 +1,19 @@
-package Services;
+package com.crud.springmaven.Services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import DAO.CajasDAO;
-import DTO.Cajas;
+import com.crud.springmaven.DAO.CajasDAO;
+import com.crud.springmaven.DTO.Cajas;
 
 @Service
+public class CajasServiceImpl implements CajasService {
 
-public class CajasServiceImpl implements CajasService{
+	@Autowired
+	CajasDAO cajasDAO;
 
-@Autowired
-CajasDAO cajasDAO;	
-	
 	@Override
 	public List<Cajas> listarCajas() {
 		return cajasDAO.findAll();
