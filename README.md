@@ -616,3 +616,33 @@ public class CajasController {
 	}
 }
 ```
+
+Cuando esté finalizada la aplicación se comprobará el correcto funcionamiento de este utilizando la herramienta postman. Esta herramienta se utiliza para verificar los endpoints del aplicativo lanzando peticiones HTTP. La primera validación a realizar será listar todos los almacenes y cajas.
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649329-748a7ae9-f5c0-4586-be18-6820a994639b.PNG">
+</p>
+
+La imagen anterior muestra el resultado de listar todos los almacenes, para ello se utiliza el método GET y se apunta al endpoint /api/almacenes. En la siguiente imagen se utiliza la misma funcionalidad GET pero apuntando a /api/cajas, con este método devolverá todas las cajas existentes en la base de datos H2.
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649406-e5c17456-5b63-4883-ab55-123f4ae9f55e.PNG">
+</p>
+
+A continuación se verificará la devolución de cajas y almacen mediante su identificador, para ello se utilizará el método GET apuntando a /api/almacenes/{id} substituyendo la id por el código identificativo de almacen.
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649494-981877eb-b281-4a3c-a0cd-d91a7dd210cf.PNG">
+</p>
+
+Se realiza el mismo procedimiento en cajas, se apunta mediante GET al identificativo de las cajas /api/cajas/{id} substituyendo el ID por el identificador propio de cajas.
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649543-0091eae3-17f9-42fd-a664-44db11be9922.PNG">
+</p>
+
+Para continuar se verificará la eliminación de un almacén o caja, para ello se utiliza el método HTTP DELETE. Al no introducir ningún tipo de sentencia que muestre el resultado no será visible, para ello se muestra la eliminación de un elemento y el resultado listando todos.
+
+<p align="center">
+	<img src="">
+</p>
