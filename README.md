@@ -617,32 +617,76 @@ public class CajasController {
 }
 ```
 
-Cuando esté finalizada la aplicación se comprobará el correcto funcionamiento de este utilizando la herramienta postman. Esta herramienta se utiliza para verificar los endpoints del aplicativo lanzando peticiones HTTP. La primera validación a realizar será listar todos los almacenes y cajas.
+<p align="justify">Cuando esté finalizada la aplicación se comprobará el correcto funcionamiento de este utilizando la herramienta postman. Esta herramienta se utiliza para verificar los endpoints del aplicativo lanzando peticiones HTTP. La primera validación a realizar será listar todos los almacenes y cajas.</p>
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/103035621/169649329-748a7ae9-f5c0-4586-be18-6820a994639b.PNG">
 </p>
 
-La imagen anterior muestra el resultado de listar todos los almacenes, para ello se utiliza el método GET y se apunta al endpoint /api/almacenes. En la siguiente imagen se utiliza la misma funcionalidad GET pero apuntando a /api/cajas, con este método devolverá todas las cajas existentes en la base de datos H2.
+<p align="justify">La imagen anterior muestra el resultado de listar todos los almacenes, para ello se utiliza el método GET y se apunta al endpoint /api/almacenes. En la siguiente imagen se utiliza la misma funcionalidad GET pero apuntando a /api/cajas, con este método devolverá todas las cajas existentes en la base de datos H2.</p>
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/103035621/169649406-e5c17456-5b63-4883-ab55-123f4ae9f55e.PNG">
 </p>
 
-A continuación se verificará la devolución de cajas y almacen mediante su identificador, para ello se utilizará el método GET apuntando a /api/almacenes/{id} substituyendo la id por el código identificativo de almacen.
+<p align="justify">A continuación se verificará la devolución de cajas y almacen mediante su identificador, para ello se utilizará el método GET apuntando a /api/almacenes/{id} substituyendo la id por el código identificativo de almacen.</p>
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/103035621/169649494-981877eb-b281-4a3c-a0cd-d91a7dd210cf.PNG">
 </p>
 
-Se realiza el mismo procedimiento en cajas, se apunta mediante GET al identificativo de las cajas /api/cajas/{id} substituyendo el ID por el identificador propio de cajas.
+<p align="justify">Se realiza el mismo procedimiento en cajas, se apunta mediante GET al identificativo de las cajas /api/cajas/{id} substituyendo el ID por el identificador propio de cajas.</p>
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/103035621/169649543-0091eae3-17f9-42fd-a664-44db11be9922.PNG">
 </p>
 
-Para continuar se verificará la eliminación de un almacén o caja, para ello se utiliza el método HTTP DELETE. Al no introducir ningún tipo de sentencia que muestre el resultado no será visible, para ello se muestra la eliminación de un elemento y el resultado listando todos.
+<p align="justify">Para continuar se verificará la eliminación de un almacén o caja, para ello se utiliza el método HTTP DELETE. Al no introducir ningún tipo de sentencia que muestre el resultado no será visible, para ello se muestra la eliminación de un elemento y el resultado listando todos.</p>
 
 <p align="center">
-	<img src="">
+	<img src="https://user-images.githubusercontent.com/103035621/169649636-b07ffa67-4617-4054-84bf-ae359eaffc93.PNG">
 </p>
+
+A continuación se muestra el resultado de la eliminación.
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649670-c4d84f69-e125-440e-b706-6be247573b71.PNG">
+</p>
+
+<p align="justify">Se realizará el mismo procedimiento con las cajas, se apuntará a la dirección de la api referente a la eliminación de cajas y mediante el método DELETE se eliminará una caja introduciendo el ID en la ruta.</p>
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649719-8aacb3b6-4dc0-4adb-ad23-d9b4bee162f4.PNG">
+</p>
+
+Se verificará la eliminación de la caja.
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649746-f7d4e8df-be18-450f-903a-f31c174c2bff.PNG">
+</p>
+
+<p align="justify">Una vez comprobado el funcionamiento de visualizar todas las cajas, almacenes, de visualizar cajas y almacenes por ID y de eliminar las cajas y almacenes mediante ID se procederá a verificar el funcionamiento de la creación de Cajas o Almacenes, para ello se utilizará el método HTTP POST acompañado de la URI de los endpoints. En la siguiente imagen se podrá observar de forma visual.</p>
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649837-13b610ca-3a21-4042-a74c-cc1df61be87f.PNG">
+</p>
+
+Se realiza el mismo procedimiento con las cajas:
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169649906-a24a026a-833f-485c-9ff1-d39c616faad1.PNG">
+</p>
+
+<p align="justify">Por último faltaría verificar la modificación de almacenes y cajas existentes, para ello se utiliza la sentencia PUT de HTTP acompañado de la URI del endpoint de modificar caja o almacén. En la siguiente imagen se muestra como modificar un almacén.</p>
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169650006-a3f59ec5-3e44-4101-b6a5-6ead4f007d09.PNG">
+</p>
+
+Se realiza el mismo proceso con cajas:
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/103035621/169650057-6ce955db-5803-4075-b48f-287d5ed012f3.PNG">
+</p>
+
+<p align="justify">Y con esto ya se habrían comprobado todos los endpoints mediante postman, muy importante a la hora de realizar un proyecto con Spring y H2 estructurar bien el código y verificar el uso correcto de las anotaciones.</p>
